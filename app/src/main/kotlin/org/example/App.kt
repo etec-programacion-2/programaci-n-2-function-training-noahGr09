@@ -54,54 +54,74 @@ fun main() {
 
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
-    // Implementar aquí
-    return 0.0
+    return (nota1+nota2)/2
 }
 
 fun esAprobado(nota: Double): Boolean {
-    // Implementar aquí
-    return false
+  if (nota>=6){
+    return true
+  } else {return false}
 }
 
 // Etapa 2
 fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
     // Implementar aquí
-    return 0.0
+    return (nota1+nota2+nota3)/3
 }
 
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
     // Implementar aquí
-    return ""
+    if (nota >= 7.0){
+        return "El alumno $nombre $apellido está aprobado"
+    } else{
+        return "El alumno $nombre $apellido está desaprobado"
+    }
 }
 
 // Etapa 3
 fun calcularPromedioCurso(notas: List<Double>): Double {
     // Implementar aquí
-    return 0.0
+    var suma = 0.0
+    for (x in notas){
+        suma += x
+    }
+    return suma/ notas.size
 }
 
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
     // Implementar aquí
-    return emptyList()
+    var aprobados = mutableListOf<String>()
+    for (x in 0..notas.size -1){
+        if (notas[x]>=7.0){
+            aprobados.add(nombres[x])
+        }
+    }
+    return aprobados
 }
 
 // Etapa 4
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
-    // Implementar aquí
-    return ""
+    var notas_materias = mutableMapOf<String, Double>()
+    for (x in 0..materias.size -1){
+        notas_materias[materias[x]]=notas[x]
+    }
+    return "Alumno: $nombre\n$notas_materias"
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    return notas.max()
 }
 
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    return notas.min()
 }
 
 fun contarAprobados(notas: List<Double>): Int {
-    // Implementar aquí
-    return 0
+    var cont = 0
+    for (x in notas){
+        if (x>=7){
+            cont += 1
+        }
+    }
+    return cont
 }
