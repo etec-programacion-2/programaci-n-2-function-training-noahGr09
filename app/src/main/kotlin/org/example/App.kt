@@ -101,21 +101,27 @@ fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<St
 
 // Etapa 4
 fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
-    // Implementar aquí
-    return ""
+    var notas_materias = mutableMapOf<String, Double>()
+    for (x in 0..materias.size -1){
+        notas_materias[materias[x]]=notas[x]
+    }
+    return "Alumno: $nombre\n$notas_materias"
 }
 
 fun obtenerNotaMasAlta(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    return notas.max()
 }
 
 fun obtenerNotaMasBaja(notas: List<Double>): Double {
-    // Implementar aquí
-    return 0.0
+    return notas.min()
 }
 
 fun contarAprobados(notas: List<Double>): Int {
-    // Implementar aquí
-    return 0
+    var cont = 0
+    for (x in notas){
+        if (x>=7){
+            cont += 1
+        }
+    }
+    return cont
 }
